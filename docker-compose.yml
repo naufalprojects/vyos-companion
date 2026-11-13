@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  vyos-companion:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: vyos-companion-en
+    restart: unless-stopped
+
+    # The .env file is read automatically (same folder as docker-compose.yml)
+    env_file:
+      - .env
+
+    ports:
+      # Format: HOST_PORT:CONTAINER_PORT
+      - "${APP_PORT:-8081}:80"
+
+    environment:
+      # Override defaults from .env (so it still works even if .env is missing)
+      DEMO_MODE: "${DEMO_MODE:-true}"
+      VYOS_HOST: "${VYOS_HOST:-192.168.1.1}"
+      VYOS_PORT: "${VYOS_PORT:-22}"
+      VYOS_USER: "${VYOS_USER:-vyos}"
+      VYOS_PASS: "${VYOS_PASS:-vyos}"
+      SSH_TIMEOUT: "${SSH_TIMEOUT:-10}"
+
+    volumes:
+      # 1. Persist the configuration change log to the host
+      - ./data:/var/www/html/data
+
+      # 2. Live-reload: PHP/JS changes on the host take effect immediately
+      #    without a rebuild. For pure production, comment this line out.
+      - ./:/var/www/html
+      - /var/www/html/data
+
+    networks:
+      - vyos-net
+
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "1.0"
+
+networks:
+  vyos-net:
+    driver: bridge
