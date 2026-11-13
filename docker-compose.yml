@@ -32,8 +32,8 @@ services:
 
       # 2. Live-reload: PHP/JS changes on the host take effect immediately
       #    without a rebuild. For pure production, comment this line out.
-      - ./:/var/www/html
-      - /var/www/html/data
+      # - ./:/var/www/html
+      # - /var/www/html/data
 
     networks:
       - vyos-net
