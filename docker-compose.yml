@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    container_name: vyos-companion-en
+    container_name: vyos-companion
     restart: unless-stopped
 
     # The .env file is read automatically (same folder as docker-compose.yml)
