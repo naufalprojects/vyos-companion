@@ -4,7 +4,7 @@ Web-based companion dashboard for managing a **VyOS** router via local PHP. No d
 
 Ready to deploy as a Docker container.
 
-> This is no-login edition. For login, check on branch "login" (will be uploaded soon)
+> This is no-login edition. For login, check on branch "login" (will be uploaded soon). Don't deploy using publicly-acessed server!
 
 ---
 
