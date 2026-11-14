@@ -1,0 +1,26 @@
+# ─────────────────────────────────────────────────────────
+# Docker Build Context - files excluded from the image
+# ─────────────────────────────────────────────────────────
+
+# Git
+.git/
+.gitignore
+
+# Documentation (not needed in the container)
+README.md
+DEPLOY.md
+
+# Env template (the real values live in .env, no need to include it in the image)
+.env.example
+
+# Node / frontend tools (if added later)
+node_modules/
+npm-debug.log
+
+# Runtime data — mounted via volume, not copied into the image
+data/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
