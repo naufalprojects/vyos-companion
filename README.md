@@ -35,7 +35,7 @@ Ready to deploy as a Docker container.
 ├── config.php          ← Connection settings (supports environment variables)
 ├── Dockerfile          ← PHP 8.2 + Apache + ssh2 + sshpass image build
 ├── docker-compose.yml  ← Compose: port, env, persistent volume, resource limits
-├── .env.example        ← Env template (APP_PORT, DEMO_MODE, VYOS_HOST, etc.)
+├── env.example        ← Env template (APP_PORT, DEMO_MODE, VYOS_HOST, etc.)
 ├── .dockerignore       ← Files excluded from the image
 ├── README.md           ← This documentation
 └── data/
@@ -51,7 +51,7 @@ Ready to deploy as a Docker container.
 # 1. Upload the contents to the Docker, or perform a git clone
 
 # 2. Go to the folder & create .env
-cp .env.example .env
+cp env.example .env
 nano .env   # fill in your VyOS IP & credentials
 
 # 3. Build & run
