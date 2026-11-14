@@ -36,7 +36,7 @@ Ready to deploy as a Docker container.
 ├── Dockerfile          ← PHP 8.2 + Apache + ssh2 + sshpass image build
 ├── docker-compose.yml  ← Compose: port, env, persistent volume, resource limits
 ├── env.example        ← Env template (APP_PORT, DEMO_MODE, VYOS_HOST, etc.)
-├── .dockerignore       ← Files excluded from the image
+├── dockerignore       ← Files excluded from the image
 ├── README.md           ← This documentation
 └── data/
     └── config_log.json ← (Auto-created) History of configuration commands
